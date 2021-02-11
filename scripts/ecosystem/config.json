@@ -1,0 +1,1 @@
+{"apps":{"master":{"script":"yarn start","env":{"PORT":3000},"name":"master"}},"maxVersions":10,"autoClean":true,"network":{"allocatedPorts":[3000],"portStart":3000}}

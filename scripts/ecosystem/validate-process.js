@@ -6,14 +6,8 @@
 const config = require('./config.json');
 
 module.exports = (processConfiguration) => {
-	const { env: { PORT }, name } = processConfiguration;
-	for (const key of Object.keys(config.apps)) {
-		const app = config.apps[key];
-		if (app.name === name) {
-			throw new Error(`Multiple apps on cluster with similar version: ${name}`);
-		}
-		if (app.env.PORT === PORT) {
-			throw new Error(`Cannot run muliple apps on similar port ${PORT}. Check configuration.`);
-		}
+	const { name } = processConfiguration;
+	if (config.apps[name]) {
+		throw new Error(`Multiple apps on cluster with similar version: ${name}`);
 	}
 };

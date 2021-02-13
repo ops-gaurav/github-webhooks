@@ -1,1 +1,1 @@
-{"apps":{"master":{"script":"yarn start","env":{"PORT":3000},"name":"master"}},"maxVersions":10,"autoClean":true,"network":{"allocatedPorts":[3000],"portStart":3000}}
+{"apps":{"master":{"script":"yarn start","name":"master","env":{"PORT":4000},"pid":4459,"pm_id":1},"dev":{"script":"yarn start","name":"dev","env":{"PORT":4001},"pid":4593,"pm_id":0}},"maxVersions":10,"autoClean":true,"network":{"allocatedPorts":[4000,4001],"portStart":4000}}

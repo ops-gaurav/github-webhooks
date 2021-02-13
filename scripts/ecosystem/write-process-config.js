@@ -30,7 +30,7 @@ const addNewAppInstance = (appConfig) => {
 };
 
 module.exports = (appConfig) => {
-	appConfig.env.PORT = effectivePORT();
+	appConfig.env = { PORT: effectivePORT() };
 	const pm2Config = { apps: [appConfig] };
 	const data = JSON.stringify(pm2Config);
 	const directory = path.resolve(__dirname, '..', '..', 'versions', appConfig.name, 'config.json');

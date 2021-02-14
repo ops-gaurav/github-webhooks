@@ -6,6 +6,7 @@ export const ACTIONS = {
 	OPENED: 'opened',
 	REOPENED: 'reopened',
 	CLOSED: 'closed',
+	SYNCHRONIZE: 'synchronize',
 };
 
 export const APP_VERSION = 1.0;

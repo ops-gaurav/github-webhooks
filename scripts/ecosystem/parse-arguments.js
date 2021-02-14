@@ -1,4 +1,4 @@
-module.exports = () => {
+module.exports = async () => {
 	const configuration = process.argv[2];
 	if (!configuration) {
 		throw new Error('Missing the configuration for new process');

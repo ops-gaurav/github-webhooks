@@ -36,6 +36,7 @@ ActivateRoutes(app);
 const env = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
 app.get('/', (req, res) => res.send(`<h1>BareMetal Express Server ${env} environment</h1>`));
 
-const port = 3000;
+const { env: { PORT = 3000 } } = process;
 
-app.listen(port, () => console.log(`Backend is running on port ${port}`));
+app.listen(PORT, () => console.log(`Backend is running on port ${PORT}`));
+

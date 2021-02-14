@@ -1,4 +1,5 @@
 #!/bin/sh
+# trigger to re-run the pm2 instance
 # exit when any command fails
 set -e
 # keep track of the last executed command
@@ -7,30 +8,16 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 # this script file will pull the git repository
 DIRECTORY=../versions
-REPOSITORY=$1
-BRANCH=$2
+BRANCH=$1
 
-# cd $DIRECTORY
-cd versions
-echo "Cloning the branch into the directory..."
-git clone --branch $BRANCH $REPOSITORY $BRANCH
-
-# cd $DIRECTORY/$BRANCH
-cd $BRANCH
-echo "Configuring the instance..."
-yarn install
-
-cd ../../scripts/ecosystem
-
-echo "configure the process configuration"
+echo 'configuring the instance configurations...'
+cd ecosystem
 node add-process.js config='{"script": "yarn start"}' $BRANCH
-sleep 5
-# echo "Booting up the instance"
+
 cd ../../versions/$BRANCH
-pwd
-echo 'Launching the server instance...'
+echo 'Booting up the instance...'
 pm2 start config.json
-sleep 5
-echo "instance version is now running...updating the process information..."
+
+echo 'Updating the pid of the processes...'
 cd ../../scripts/ecosystem/pm2
 node update-pid.js $BRANCH

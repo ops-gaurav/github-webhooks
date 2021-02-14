@@ -29,11 +29,12 @@ const addNewAppInstance = (appConfig) => {
 	return config;
 };
 
-module.exports = (appConfig) => {
+module.exports = async (appConfig) => {
 	appConfig.env = { PORT: effectivePORT() };
 	const pm2Config = { apps: [appConfig] };
 	const data = JSON.stringify(pm2Config);
 	const directory = path.resolve(__dirname, '..', '..', 'versions', appConfig.name, 'config.json');
 	fs.writeFileSync(directory, data);
 	addNewAppInstance(appConfig);
+	return true;
 };

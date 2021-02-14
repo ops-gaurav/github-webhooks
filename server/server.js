@@ -34,9 +34,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 ActivateRoutes(app);
 
 const env = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
-app.get('/', (req, res) => res.send(`<h1>BareMetal Express Server ${env} environment</h1>`));
+app.get('/', (req, res) => res.send('<h1>BareMetal Express Server test1 environment</h1>'));
 
 const { env: { PORT = 3000 } } = process;
 
 app.listen(PORT, () => console.log(`Backend is running on port ${PORT}`));
-

@@ -1,9 +1,1 @@
-{
-	"apps": {},
-	"maxVersions": 10,
-	"autoClean": true,
-	"network": {
-		"allocatedPorts": [],
-		"portStart": 4000
-	}
-}
+{"apps":{"feat-webhook-integration":{"script":"yarn start","name":"feat-webhook-integration","env":{"PORT":4000},"pid":4303,"pm_id":0}},"maxVersions":10,"autoClean":true,"network":{"allocatedPorts":[4000],"portStart":4000}}

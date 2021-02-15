@@ -1,9 +1,21 @@
 {
-	"apps": {},
+	"apps": {
+		"feat-change-message": {
+			"script": "yarn start",
+			"name": "feat-change-message",
+			"env": {
+				"PORT": 4000
+			},
+			"pid": 2410,
+			"pm_id": 0
+		}
+	},
 	"maxVersions": 10,
 	"autoClean": true,
 	"network": {
-		"allocatedPorts": [],
+		"allocatedPorts": [
+			4000
+		],
 		"portStart": 4000
 	}
 }
